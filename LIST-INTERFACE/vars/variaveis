@@ -1,0 +1,13 @@
+LO=`ifconfig lo | grep inet | cut -d':' -f2 | head -n 1 | cut -b 2-12`
+ETH0=`ifconfig eth0 | grep inet | cut -d':' -f2 | head -n 1 | cut -b 2-15`
+ETH1=`ifconfig eth1 | grep inet | cut -d':' -f2 | head -n 1 | cut -b 2-15`
+ETH2=`ifconfig eth2 | grep inet | cut -d':' -f2 | head -n 1 | cut -b 2-15`
+ETH3=`ifconfig eth3 | grep inet | cut -d':' -f2 | head -n 1 | cut -b 2-15`
+ETH4=`ifconfig eth4 | grep inet | cut -d':' -f2 | head -n 1 | cut -b 2-15`
+WLAN0=`ifconfig wlan0 | grep inet | cut -d':' -f2 | head -n 1 | cut -b 2-15`
+TUN0=`ifconfig tun0 | grep inet | cut -d':' -f2 | head -n 1 | cut -b 2-15`
+
+MSG1="POR FAVOR DIGITE UMA OPÇÃO"
+MSG2="DIGITE UMA OPÇÃO"
+MSG3="DIGITE O NOME DA INTERFACE DE REDE QUE DESEJA AS INFORMAÇÔES: \c"
+MSG4="POR FAVOR DIGITE UMA OPÇÂO"
