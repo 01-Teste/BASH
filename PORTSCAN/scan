@@ -4,7 +4,7 @@
 # Descrição: Programa que realiza scan networks para coletar ativos, scan de portas essenciais.
 
 # dependencias
-DIR="/home/rafael/scan"
+DIR="~/scan"
 source $DIR/vars/variaveis && source $DIR/moduls/*
 
 # Programa
