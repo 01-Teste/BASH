@@ -7,4 +7,4 @@ function t4(){ echo -e "\e[01;33m$i\e[0m   \e[01;32mATIVO\e[0m"; }
 function t5(){ echo -e "\e[47;30m      PRESSIONE [ENTER] PARA SAIR       \e[0m\c"; }
 function t6(){ echo -e "\e[47;30m       PORTAS ABETRAS NOS HOSTS         \e[0m\n"; }
 function t7(){ echo -e "\e[01;33m$X\e[0m"; }
-function t8(){ echo -e "\e[01;37mport $i\topen\e[0m"; }
+function t8(){ echo -e "\e[01;37mport $i\ topen\e[0m"; }
