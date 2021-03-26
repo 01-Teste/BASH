@@ -1,0 +1,43 @@
+# Funçes para funcionamento do script
+
+MENU(){ echo -e "
+=========================================================
+        INTERFACES DE REDE
+=========================================================
+
+NOME DA PLACA   |   ENDEREÇO IP
+
+LOOPBACK    |   $LO
+ETH0        |   $ETH0
+ETH1        |   $ETH1
+ETH2        |   $ETH2
+ETH3        |   $ETH3
+WLAN0       |   $WLAN0
+TUN0        |   $TUN0
+
+=========================================================
+
+[1] VERIFICAR MAIS INFORMAÇÕES DE UMA INTERFACE
+[0] SAIR
+
+=========================================================
+
+ESCOLHA UMA OPÇÂO: \c"; read OP1; }
+
+MENU2(){ echo -e "
+=========================================================
+        INFORMAÇÕES DAS INTERFACES
+=========================================================
+
+[1] DIGITAR O NOME DA INTERFACE
+[0] VOLTAR AO MENU PRINCIPAL
+
+=========================================================
+
+ESCOLHA UMA OPÇÃO: \c"; read OP2; }
+
+SAIR(){ echo -e "
+=========================================================
+       PRESSIONE [ENTER] PARA VOLTAR
+========================================================="
+    read; clear; }
