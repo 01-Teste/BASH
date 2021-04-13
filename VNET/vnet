@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Desenvolverdor: Rafael Silva Santos
+# Descrição: scrip que realiza testes na comunicação externa
+
+x=1
+
+echo -e "\e[01;31m\niniciando teste de comunicação\e[0m $(date +"%D-%T")" >> perda_pacote.log
+
+while [ 1 ]; do
+
+    timeout 0.5 /bin/bash -c "ping -c1 google.com > /dev/null"
+
+    if [[ $? != 0 ]]; then
+        echo "perda $x"
+        printf "\033[A"
+        echo -e "\e[01;33mperda de pacote\e[0m \t$(date +"%D-%T")" >> perda_pacote.log
+        x=$(($x+1))
+    fi
+
+done
