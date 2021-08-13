@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Descrição: script para verificar cabo conectado nas placas de rede
+
+if [[ $UID != 0 ]]; then echo "programa deve ser executado com privilegio de administrador" ; exit 1 ; fi
+
+function coleta_placas(){
+    placas=$(ip --brief link show | awk -F' ' '{ print $1 }' )
+}
+
+function verifica_link(){
+    for i in ${placas[@]}; do echo -e "\e[01;33m$i\t$(ethtool $i | grep -i 'link detected' )\e[0m" ; done
+}
+
+coleta_placas && verifica_link
