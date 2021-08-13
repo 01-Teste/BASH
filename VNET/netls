@@ -9,7 +9,7 @@ function coleta_placas(){
 }
 
 function verifica_link(){
-    for i in ${placas[@]}; do echo -e "\e[01;33m$i\t$(ethtool $i | grep -i 'link detected' )\e[0m" ; done
+    for i in ${placas[@]}; do echo "$i\t$(ethtool $i | grep -i 'link detected' )" ; done
 }
 
 coleta_placas && verifica_link
