@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Desenvolverdor: Rafael Silva Santos
-# Descrição: scrip que realiza testes na comunicação externa
+# Descrição: script que realiza testes na comunicação externa
 
 x=1
 
