@@ -8,8 +8,8 @@ function get_interface(){
     interfaces=$(ip --brief link show | awk -F' ' '{ print $1 }' )
 }
 
-function verify_link(){
+function check_link(){
     for i in ${interfaces[@]}; do echo "$i\t$(ethtool $i | grep -i 'link detected' )" ; done
 }
 
-get_interface && verify_link
+get_interface && check_link
