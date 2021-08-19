@@ -4,12 +4,12 @@
 
 if [[ $UID != 0 ]]; then echo "programa deve ser executado com privilegio de administrador" ; exit 1 ; fi
 
-function coleta_placas(){
-    placas=$(ip --brief link show | awk -F' ' '{ print $1 }' )
+function get_interface(){
+    interfaces=$(ip --brief link show | awk -F' ' '{ print $1 }' )
 }
 
-function verifica_link(){
-    for i in ${placas[@]}; do echo "$i\t$(ethtool $i | grep -i 'link detected' )" ; done
+function verify_link(){
+    for i in ${interfaces[@]}; do echo "$i\t$(ethtool $i | grep -i 'link detected' )" ; done
 }
 
-coleta_placas && verifica_link
+get_interface && verify_link
