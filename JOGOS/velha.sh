@@ -2,6 +2,9 @@
 
 # Descrição: Jogo da velha
 
+# variavel que define status do jogo
+run=true
+
 # para definir posições de exibição do cursor
 pos="tput cup"
 
@@ -62,7 +65,8 @@ _vJogada ()
 		8) [ -z $c2 ] && c2=$v && break ;;
 		# Verifica se a nona casa esta livre
 		9) [ -z $c3 ] && c3=$v && break ;;
-		q) break; break ;;
+		# Define o status de jogo para finalizar
+		q) run=false; break ;;
 	esac
 }
 
@@ -113,6 +117,8 @@ jogadaspc ()
 	elif [[ $a3 = $valor && $b2 = $valor && $c1 = ' ' ]];then key='7'
 	elif [[ $a3 = $valor && $c1 = $valor && $b2 = ' ' ]];then key='5'
 	elif [[ $c1 = $valor && $b2 = $valor && $a3 = ' ' ]];then key='3'
+	
+	# seguimento para realizar outras validações
 	else passou='0'
 	fi
 }
@@ -232,14 +238,12 @@ _gaming ()
 }
 
 # Realizando limpeza de tela e exibindo a matriz e tabela de placar
-clear
-_config && _casasN && _matriz && _placar
+clear; _config; _casasN; _matriz; _placar
 
-sleep 2
-_casas
+sleep 2; _casas
 
 # Funcionamento do game
-while :
+while run
 do 
 	j=1 _gaming && _jogador
 	j=2 _gaming && _oponente
