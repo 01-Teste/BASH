@@ -225,7 +225,7 @@ _config ()
 # Define o metodo de entrada do segundo jogador
 _gaming ()
 {
-	_matriz && _ganhador && _empate && _placar
+	_matriz; _ganhador; _empate; _placar
 
 	$pos 8 10 && echo " jogador = $j"
 	sleep .4
@@ -233,11 +233,9 @@ _gaming ()
 
 # Realizando limpeza de tela e exibindo a matriz e tabela de placar
 clear
-
 _config && _casasN && _matriz && _placar
 
 sleep 2
-
 _casas
 
 # Funcionamento do game
