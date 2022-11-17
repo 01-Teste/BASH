@@ -243,7 +243,7 @@ clear; _config; _casasN; _matriz; _placar
 sleep 2; _casas
 
 # Funcionamento do game
-while run
+while $run
 do 
 	j=1 _gaming && _jogador
 	j=2 _gaming && _oponente
