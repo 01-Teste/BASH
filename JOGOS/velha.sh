@@ -1,6 +1,12 @@
 #!/bin/bash
 
+# --------------------------------------------
 # Descrição: Jogo da velha
+# Versão: 0.01 Beta
+# --------------------------------------------
+# Validação realizar no Ubuntu-16.04
+# pode haver erros em versções diferentes
+# --------------------------------------------
 
 # variavel que define status do jogo
 run=true
