@@ -4,8 +4,8 @@
 # Descrição: Jogo da velha
 # Versão: 0.01 Beta
 # --------------------------------------------
-# Validação realizar no Ubuntu-16.04
-# pode haver erros em versções diferentes
+# Validação realizar no Ubuntu
+# pode haver erros em distros diferentes
 # --------------------------------------------
 
 # variavel que define status do jogo
@@ -54,32 +54,32 @@ _vJogada ()
 {
 	case $key in
 		# Verifica se a primeira casa esta livre
-		1) [ -z $a1 ] && a1=$v && break ;;
+		1) [ -z $a1 ] && a1=$v && valida=false ;;
 		# Verifica se a segunda casa esta livre
-		2) [ -z $a2 ] && a2=$v && break ;;
+		2) [ -z $a2 ] && a2=$v && valida=false ;;
 		# Verifica se a terceira casa esta livre
-		3) [ -z $a3 ] && a3=$v && break ;;
+		3) [ -z $a3 ] && a3=$v && valida=false ;;
 		# Verifica se a quarta casa esta livre
-		4) [ -z $b1 ] && b1=$v && break ;;
+		4) [ -z $b1 ] && b1=$v && valida=false ;;
 		# Verifica se a quinta casa esta livre
-		5) [ -z $b2 ] && b2=$v && break ;;
+		5) [ -z $b2 ] && b2=$v && valida=false ;;
 		# Verifica se a sexta casa esta livre
-		6) [ -z $b3 ] && b3=$v && break ;;
+		6) [ -z $b3 ] && b3=$v && valida=false ;;
 		# Verifica se a sétima casa esta livre
-		7) [ -z $c1 ] && c1=$v && break ;;
+		7) [ -z $c1 ] && c1=$v && valida=false ;;
 		# Verifica se a oitava casa esta livre
-		8) [ -z $c2 ] && c2=$v && break ;;
+		8) [ -z $c2 ] && c2=$v && valida=false ;;
 		# Verifica se a nona casa esta livre
-		9) [ -z $c3 ] && c3=$v && break ;;
+		9) [ -z $c3 ] && c3=$v && valida=false ;;
 		# Define o status de jogo para finalizar
-		q) run=false; break ;;
+		q) run=false; valida=false ;;
 	esac
 }
 
 # Capturando a jogada do jogador principal
 _jogador ()
 {
-	v='X'; while :; do read -s -n1 key; _vJogada; done
+	v='X'; while $valida ; do read -s -n1 key; _vJogada; done
 }
 
 # Verificando as casas para definir se ataca ou defende
@@ -147,7 +147,7 @@ defesapc ()
 # Capturando jogadas do jogador 2 com base na escolha do inicío
 _oponente ()
 {
-	v='O'; while :; do game; _vJogada; done
+	v='O'; while $valida ; do game; _vJogada; done
 }
 
 # Verifica se ainda quer jogar após o termino da partida
@@ -237,7 +237,7 @@ _config ()
 # Define o metodo de entrada do segundo jogador
 _gaming ()
 {
-	_matriz; _ganhador; _empate; _placar
+	valida=true; _matriz; _ganhador; _empate; _placar
 
 	$pos 8 10 && echo " jogador = $j"
 	sleep .4
