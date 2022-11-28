@@ -162,7 +162,7 @@ _continua ()
 
 	case $op in
 		1) _casas; _matriz ;;
-		2) break ;;
+		2) run=false ;;
 		*) $pos 22 10; echo "digite uma opção váilida"; x='' _continua;;
 	esac
 }
